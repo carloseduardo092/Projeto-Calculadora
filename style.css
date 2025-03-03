@@ -1,0 +1,108 @@
+* { 
+    box-sizing: border-box;
+    padding: 0px;
+    margin: 0px;
+}
+
+:root {
+    --cor-display: #FDE990; /* Amarelo pastel quente */
+    --cor-fundo: #FFE17B; /* Amarelo quente */
+    --cor-fundo-calculadora: #FFFAF0; /* Branco areia */
+    --cor-botao: #FF9A76; /* Laranja suave */
+    --cor-botao-operacao: #FF3F34; /* Vermelho queimado */
+    --cor-texto: #333333; /* Cinza escuro */
+}
+
+
+body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: var(--cor-fundo);
+}
+
+.Base {
+    background: var(--cor-fundo-calculadora);
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 10px 10px 15px 5px rgba(0, 0, 0, 0.5);
+}
+
+/*botoes*/
+.Botoes {
+    padding: 15px;
+    padding-top: 0px;
+}
+
+.l1, .l2, .l3, .l4, .l5 {
+    padding: 1px;
+}
+
+button {
+    width: 70px;
+    height: 70px;
+    border-radius: 10px;
+    border: 1px solid rgb(138, 138, 138);
+    font-size: 20px;
+    color: var(--cor-texto);
+    transition: 0.5s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.op {
+    background: var(--cor-botao-operacao);
+    font-family: "Georgia", serif;
+}
+
+.num {
+    background: var(--cor-botao);
+    font-family: "Courier New", Courier, monospace;
+}
+
+/*Display*/
+
+.Display {
+    width: 95%;
+    height: 80px;
+    background: var(--cor-display);
+    margin-top: 15px;
+    border: 1px solid rgb(206, 206, 206);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    overflow: hidden;
+    position: relative;
+}
+
+.Display > input {
+    background: var(--cor-display);
+    height: 40px;
+    width: 100%;
+    font-size: 20px;
+    border: 0px;
+    text-align: end;
+    position: absolute;
+    top: 27px;
+    right: 5px;
+}
+
+.Display > input:focus {
+    border: none;
+    outline: none;
+}
+
+.Display > p {
+    position: absolute;
+    top: 3px;
+    right: 15px;
+}

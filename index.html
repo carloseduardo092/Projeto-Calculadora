@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!--
+        [ AC ] [ ( ]  [ ) ]  [ % ]  [ √ ]  
+        [ 7 ]  [ 8 ]  [ 9 ]  [ ÷ ]  [ x² ]  
+        [ 4 ]  [ 5 ]  [ 6 ]  [ × ]  [ xʸ ]  
+        [ 1 ]  [ 2 ]  [ 3 ]  [ - ]  [ ²√x ]  
+        [ ± ]  [ 0 ]  [ . ]  [ + ]  [ = ]
+    -->
+    <main>
+        <div class="Base">
+            <div class="Display">
+                <p id="Digita"></p>
+                <input type="text" class="num" id="input" autocomplete="off">
+            </div>
+            <div class="Botoes">
+                <!--Primeira linha-->
+                <div class="l1">
+                    <button class="op">AC</button>
+                    <button class="op">(</button>
+                    <button class="op">)</button>
+                    <button class="op">%</button>
+                    <button class="op">√</button>
+                </div>
+                <!--Segunda coluna-->
+                <div class="l2">
+                    <button class="num">7</button>
+                    <button class="num">8</button>
+                    <button class="num">9</button>
+                    <button class="op">÷</button>
+                    <button class="op">x²</button>
+                </div>
+                <div class="l3">
+                    <button class="num">4</button>
+                    <button class="num">5</button>
+                    <button class="num">6</button>
+                    <button class="op">×</button>
+                    <button class="op">xʸ</button>
+                </div>
+                <div class="l4">
+                    <button class="num">1</button>
+                    <button class="num">2</button>
+                    <button class="num">3</button>
+                    <button class="op">-</button>
+                    <button class="op">²√x</button>
+                </div>
+                <div class="l5">
+                    <button class="op">±</button>
+                    <button class="num">0</button>
+                    <button class="op">,</button>
+                    <button class="op">+</button>
+                    <button class="op">=</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script>
+        const input = window.document.querySelector('#input')
+        const text = window.document.querySelector('#Digita')
+
+        let Stop = false
+        let Pontinhos = ['.','..','...']
+        input.addEventListener('focus', function () {
+            let index = 0
+            let somar = false
+            let loop = setInterval(() => {
+                //Vai subtrair ou somar?
+                if (index == 0) {
+                    somar = true
+                }
+                else if (index == 2) {
+                    somar = false
+                }
+
+                text.innerText = `Digitando${Pontinhos[index]}`
+
+                if (somar) {
+                    index ++ 
+                } 
+                else {
+                    index --
+                }
+                if (Stop) {
+                    Stop = false
+                    text.innerText = ''
+                    clearInterval(loop)
+                }
+            }, 500);
+        })
+
+        input.addEventListener('blur' , function () {
+            Stop = true
+            text.innerText = ''
+        })
+    </script>
+</body>
+</html>
