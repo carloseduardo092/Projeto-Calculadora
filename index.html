@@ -13,9 +13,17 @@
         [ 4 ]  [ 5 ]  [ 6 ]  [ × ]  [ xʸ ]  
         [ 1 ]  [ 2 ]  [ 3 ]  [ - ]  [ ²√x ]  
         [ ± ]  [ 0 ]  [ . ]  [ + ]  [ = ]
+
+        Aqui esta um mini map oq seria essa calculadora simples.
+
+        Auto: Apolonio Guilherme Lima da Silva
+        GitHub: https://github.com/Apolo0013
+
+        Dev Responsavel pelo designe.
     -->
     <main>
         <div class="Base">
+            <button class="Tema">🎨</button>
             <div class="Display">
                 <p id="Digita"></p>
                 <input type="text" class="num" id="input" autocomplete="off">
@@ -62,8 +70,56 @@
         </div>
     </main>
     <script>
+        function TrocarTema() {
+        const temas = {
+            claro: {
+                    "--cor-display": "#FDE990",
+                    "--cor-fundo": "#FFE17B",
+                    "--cor-fundo-calculadora": "#FFFAF0",
+                    "--cor-botao": "#FF9A76",
+                    "--cor-botao-operacao": "#FF3F34",
+                    "--cor-texto": "#333333",
+                    "--cor-digita": "black",
+                    "--cor-texto-calculo": "black",
+                    "--cor-pisca": "#FF9A76" // Cor que pisca no tema claro
+                },
+                escuro: {
+                    "--cor-display": "#2C2C2C",
+                    "--cor-fundo": "#1E1E1E",
+                    "--cor-fundo-calculadora": "#292929",
+                    "--cor-botao": "#444444",
+                    "--cor-botao-operacao": "#E76F51",
+                    "--cor-texto": "#F5F5F5",
+                    "--cor-digita": "white",
+                    "--cor-texto-calculo": "white",
+                    "--cor-pisca": "#9A7B6B" // Cor que pisca no tema escuro
+                }
+            }
+            if (troca) {
+                for (let va of Object.entries(temas.claro)) {  
+                    document.documentElement.style.setProperty(va[0], va[1])
+                }
+                troca = false
+            }
+            else {
+                for (let va of Object.entries(temas.escuro)) {
+                    document.documentElement.style.setProperty(va[0], va[1])
+                }
+                troca = true
+            }
+            
+        }
+
+
         const input = window.document.querySelector('#input')
         const text = window.document.querySelector('#Digita')
+        const Troca = window.document.querySelector('.Tema')
+        //Variavel de troca
+        let troca = true
+        TrocarTema()
+        Troca.addEventListener('click', () => {
+            TrocarTema()
+        })
 
         let Stop = false
         let Pontinhos = ['.','..','...']

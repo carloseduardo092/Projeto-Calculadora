@@ -4,15 +4,6 @@
     margin: 0px;
 }
 
-:root {
-    --cor-display: #FDE990; /* Amarelo pastel quente */
-    --cor-fundo: #FFE17B; /* Amarelo quente */
-    --cor-fundo-calculadora: #FFFAF0; /* Branco areia */
-    --cor-botao: #FF9A76; /* Laranja suave */
-    --cor-botao-operacao: #FF3F34; /* Vermelho queimado */
-    --cor-texto: #333333; /* Cinza escuro */
-}
-
 
 body {
     height: 100vh;
@@ -20,6 +11,7 @@ body {
     justify-content: center;
     align-items: center;
     background: var(--cor-fundo);
+    animation: Pisca 10s ease-in-out infinite forwards;
 }
 
 .Base {
@@ -37,6 +29,8 @@ body {
 .Botoes {
     padding: 15px;
     padding-top: 0px;
+    width: 398px;
+    height: 379px;
 }
 
 .l1, .l2, .l3, .l4, .l5 {
@@ -50,11 +44,12 @@ button {
     border: 1px solid rgb(138, 138, 138);
     font-size: 20px;
     color: var(--cor-texto);
-    transition: 0.5s;
+    transition: 0.5s ease-in-out;
 }
 
 button:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
+    color: white;
 }
 
 .op {
@@ -86,6 +81,7 @@ button:hover {
 
 .Display > input {
     background: var(--cor-display);
+    color: var(--cor-texto-calculo);
     height: 40px;
     width: 100%;
     font-size: 20px;
@@ -105,4 +101,34 @@ button:hover {
     position: absolute;
     top: 3px;
     right: 15px;
+}
+
+#Digita {
+    color: var(--cor-digita);
+}
+
+/*troca tema*/
+.Tema {
+    transition: 0s;
+    position: fixed;
+    left: 5vh;
+    top: 3vw;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    border-radius: 50px;
+    border: 0px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);;
+    cursor: pointer;
+}
+
+/*Pisca Pisca*/
+
+@keyframes Pisca {
+    50% {
+        background: var(--cor-pisca);
+    }   
+    100% {
+        background: var(--cor-fundo);
+    }
 }
