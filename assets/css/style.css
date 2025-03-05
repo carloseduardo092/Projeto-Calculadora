@@ -132,3 +132,26 @@ button:hover {
         background: var(--cor-fundo);
     }
 }
+
+/*ImgBack*/
+.BtnBack {
+    position: relative;
+}
+
+.l5 {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+    gap: 5px;
+}
+
+.ImgBack {
+    padding: 0px;
+    margin: 0px;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
