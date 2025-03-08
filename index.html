@@ -124,7 +124,6 @@
             }
 
             if (troca) {
-                console.log('esse')
                 for (let va of Object.entries(temas.claro)) {  
                     document.documentElement.style.setProperty(va[0], va[1])
                 }
@@ -132,7 +131,6 @@
                 localStorage.setItem('troca', true)
             }
             else if (!troca) {
-                console.log('esse aqui o')
                 for (let va of Object.entries(temas.escuro)) {
                     document.documentElement.style.setProperty(va[0], va[1])
                 }
@@ -148,9 +146,8 @@
         const Troca = window.document.querySelector('.Tema')
         //Variavel de troca
         let troca = localStorage.getItem('troca') === 'true'
-        console.log(troca)
         TrocarTema()
-        console.log(troca)
+
         Troca.addEventListener('click', () => {
             TrocarTema()
         })
