@@ -2,13 +2,15 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
+    user-select: none;
 }
 
 
 body {
-    height: 100vh;
+    height: 800px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    justify-content: flex-end;
     align-items: center;
     background: var(--cor-fundo);
     animation: Pisca 10s ease-in-out infinite forwards;
@@ -22,6 +24,7 @@ body {
     gap: 10px;
     justify-content: center;
     align-items: center;
+    margin-bottom: 100px;
     box-shadow: 10px 10px 15px 5px rgba(0, 0, 0, 0.5);
 }
 
@@ -154,4 +157,38 @@ button:hover {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
+}
+
+footer {
+    width: 100%;
+    padding: 10px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background: var(--cor-footer);
+    color: var(--cor-footer-texto);
+}
+
+.info {
+    background: var(--cor-info);
+    background: #382537;
+    border-radius: 20px;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.225);
+    margin-left: 20px;
+    margin-top: 25px;
+    padding: 15px;
+}
+
+.credito {
+    margin-left: 40px;
+}
+
+.apolonio > a > img {
+    width: 25px;
+    height: 25px;
+}
+
+.carlos > a > img {
+    width: 25px;
+    height: 25px;
 }

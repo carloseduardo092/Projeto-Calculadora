@@ -69,10 +69,30 @@
             </div>
         </div>
     </main>
+    <footer>
+        <div class="info">
+            <p>Projeto para prática e incentivo à educação 📚</p>
+            <p>Calculadora feita por <strong>Apolonio</strong> e <strong>Carlos Eduardo</strong></p>
+            <div class="credito">
+                <ul>
+                    <li class="apolonio">🎨 <strong>Apolônio</strong> – Responsável pelo HTML e CSS 
+                        <a target="_blank" href="https://github.com/Apolo0013">
+                            <img src="Imagens/github.png" alt="GitHub">
+                        </a></li>
+                    <li class="carlos">💻 <strong>Carlos Eduardo</strong> – Responsável pelo JavaScript 
+                        <a target="" href="https://github.com/carloseduardo092">
+                        <img src="Imagens/github.png">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
     <script>
         function TrocarTema() {
-        const temas = {
-            claro: {
+            const temas = {
+                claro: {
                     "--cor-display": "#FDE990",
                     "--cor-fundo": "#FFE17B",
                     "--cor-fundo-calculadora": "#FFFAF0",
@@ -81,7 +101,11 @@
                     "--cor-texto": "#333333",
                     "--cor-digita": "black",
                     "--cor-texto-calculo": "black",
-                    "--cor-pisca": "#FF9A76" // Cor que pisca no tema claro
+                    "--cor-pisca": "#FF9A76", // Cor que pisca no tema claro
+                    "--cor-footer": "#FFD166", // Amarelo quente e vibrante
+                    "--cor-footer-texto": "#5A3E36", // Marrom suave para contraste
+                    "--cor-info" : "#f8c54e"
+
                 },
                 escuro: {
                     "--cor-display": "#2C2C2C",
@@ -92,20 +116,28 @@
                     "--cor-texto": "#F5F5F5",
                     "--cor-digita": "white",
                     "--cor-texto-calculo": "white",
-                    "--cor-pisca": "#9A7B6B" // Cor que pisca no tema escuro
+                    "--cor-pisca": "#9A7B6B", // Cor que pisca no tema escuro
+                    "--cor-footer": "#3A2E39", // Roxo escuro, dando um tom mais sofisticado
+                    "--cor-footer-texto": "#EAE0D5", // Bege claro para contraste suave
+                    "--cor-info" : ""
                 }
             }
+
             if (troca) {
+                console.log('esse')
                 for (let va of Object.entries(temas.claro)) {  
                     document.documentElement.style.setProperty(va[0], va[1])
                 }
                 troca = false
+                localStorage.setItem('troca', true)
             }
-            else {
+            else if (!troca) {
+                console.log('esse aqui o')
                 for (let va of Object.entries(temas.escuro)) {
                     document.documentElement.style.setProperty(va[0], va[1])
                 }
                 troca = true
+                localStorage.setItem('troca', false)
             }
             
         }
@@ -115,8 +147,10 @@
         const text = window.document.querySelector('#Digita')
         const Troca = window.document.querySelector('.Tema')
         //Variavel de troca
-        let troca = true
+        let troca = localStorage.getItem('troca') === 'true'
+        console.log(troca)
         TrocarTema()
+        console.log(troca)
         Troca.addEventListener('click', () => {
             TrocarTema()
         })
